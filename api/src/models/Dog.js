@@ -32,5 +32,5 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             defaultValue: 'DB'  // Se establece un valor predeterminado, sino se le proporciona uno.
         }
-    }, { timestamps: false })  //TODO: OBJETO DE OPCIONES QUE DESACTIVA LA CREACION AUTOMATICA DE CAMPOS
+    }, { timestamps: false })  //TODO: OBJETO DE OPCIONES QUE DESACTIVA LA CREACION AUTOMATICA DE CAMPOS.
 };
