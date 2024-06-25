@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');  // Middleware de registro de solicitud HTTP.
+const router = require('./router/index');  // Enrutador.
 
 const server = express();  // Instancia del servidor.
 
@@ -18,6 +19,8 @@ server.use((request, response, next) => {
     );
     next();
 });
+
+server.use('/', router);  // Configuracion de rutas.
 
 server.use((error, request, response, next) => {  // Manejo de errores.
     console.error(error.stack);
