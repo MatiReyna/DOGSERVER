@@ -5,7 +5,7 @@ module.exports = (sequelize) => {
         id: {
             type: DataTypes.UUID,  // Genera un ID aleatorio único.
             defaultValue: DataTypes.UUIDV4,  // Un identificador universal único predeterminado, siguiendo el estandar UUID V4.
-            primatyKey: true
+            primaryKey: true
         },
         name: {
             type: DataTypes.STRING,
