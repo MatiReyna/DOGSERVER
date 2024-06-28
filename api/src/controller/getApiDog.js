@@ -24,3 +24,5 @@ const getApiDogs = async () => {  // Función que devuelve una lista de los perr
 module.exports = {
     getApiDogs
 }
+
+// TODO: Si hay temperamentos, entonces los separa con una ',' y elimina los espacion en balnco. 
