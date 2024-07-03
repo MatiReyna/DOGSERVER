@@ -10,10 +10,10 @@ temperamentRouter.get('/', async (request, response) => {
         if (allTemperaments) {
             return response.status(200).json(allTemperaments);
         } else {
-            return res.status(404).json('No Temperaments found');
+            return response.status(404).json({ error: 'No Temperaments found' });
         }
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return response.status(500).json({ error: 'Internal Server Error', details: error.message });
     }
 });
 
