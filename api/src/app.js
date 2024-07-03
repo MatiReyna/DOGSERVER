@@ -22,6 +22,10 @@ server.use((request, response, next) => {
 
 server.use('/', router);  // Configuracion de rutas.
 
+server.use((request, response, next) => {  // Manejo de errores por rutas no encontradas.
+    response.status(404).send('Resource not found')
+});
+
 server.use((error, request, response, next) => {  // Manejo de errores.
     console.error(error.stack);
     response.status(500).send('¡Something went wrong!')
