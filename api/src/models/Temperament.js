@@ -10,7 +10,10 @@ module.exports = (sequelize) => {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true
+            unique: true,
+            validate: {
+                notEmpty: true  // El nombre no puede estar vacío.
+            }
         }
     }, { timestamps: false })  //TODO: OBJETO DE OPCIONES QUE DESACTIVA LA CREACION AUTOMATICA DE CAMPOS.
 };
