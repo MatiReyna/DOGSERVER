@@ -12,7 +12,7 @@ dogRouter.get('/', async (request, response) => {
         const allDogs = await getAllDogs();
         return response.status(200).json(allDogs);
     } catch (error) {
-        return res.status(500).json({ error: 'Internal Server Error', details: error.message });
+        return response.status(500).json({ error: 'Internal Server Error', details: error.message });
     }
 });
 
@@ -23,7 +23,7 @@ dogRouter.get('/:id', async (request, response) => {
         const dogFind = await getById(id);
         return response.status(200).json(dogFind);
     } catch (error) {
-        return res.status(500).send({ error: error.message })
+        return response.status(500).send({ error: error.message })
     }
 });
 
