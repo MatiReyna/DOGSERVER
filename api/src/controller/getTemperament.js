@@ -11,7 +11,8 @@ const getTemperaments = async () => {  // Función que obtiene los temperamentos
         return temperamentDataBase
     } else {
         // Extraemos toda la información de la API.
-        const temperamentApi = (await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)).data;
+        const response = (await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`));
+        const temperamentApi = response.data;
 
         let auxiliar = temperamentApi.flatMap((dog) => (dog.temperament || '').split(', ').map((temp) => temp.trim())).filter(Boolean);
 
