@@ -14,7 +14,7 @@ const getApiDogs = async () => {  // Función que devuelve una lista de los perr
             weight: dog.weight.metric,
             life_span: dog.life_span,
             image: dog.image.url,
-            temperaments: dog.temperaments ? dog.temperament.split(',').map((t) => t.trim()) : [],  // De ser NULL se le asigna un array vacio.
+            temperaments: dog.temperament ? dog.temperament.split(',').map((t) => t.trim()) : [],  // De ser NULL se le asigna un array vacio.
             from: 'API'  // Le creo un campo para saber de donde proviene.
         }
     });
