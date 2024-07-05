@@ -4,8 +4,7 @@ const { getDbDogs } = require('./getDbDog');
 const getAllDogs = async () => {
 
     // Ejecutamos los controladores para que nos traigan los perros.
-    const apiDogs = await getApiDogs();
-    const dbDogs = await getDbDogs();
+    const [ apiDogs, dbDogs ] = await Promise.all([ getApiDogs(), getDbDogs() ]);
 
     // Unimos las dos fuentes de datos para que sea una sola lista.
     const allDogs = dbDogs.concat(apiDogs);
