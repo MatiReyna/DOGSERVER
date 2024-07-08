@@ -5,10 +5,11 @@ const getById = async (id) => {  // Función que devuelve el perro con el id que
     const allDogs = await getAllDogs();  // Obtenemos la lista completa de perros.
 
     // Filtramos al perro con el id pasado por parámetro.
-    const filteredDog = allDogs.filter((dog) => dog.id === parseInt(id));
+    const dogId = isNaN(id) ? id : parseInt(id);
+    const dog = allDogs.find((dog) => dog.id === dogId);
 
-    if (filteredDog.length > 0) {  // Si lo encontro.
-        return filteredDog[0]  // Devuelve el objeto solo y no dentro del arreglo.
+    if (dog) {  // Si lo encontro.
+        return dog  // Devuelve el objeto solo y no dentro del arreglo.
     } else {
         return 'Dog not found'
     }
