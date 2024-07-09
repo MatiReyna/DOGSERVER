@@ -34,7 +34,7 @@ const postDog = async (name, height, weight, life_span, image, temperaments) => 
         }
 
         const dogWithTemperaments = await Dog.findByPk(newDog.id, { include: Temperament });
-        const temperamentsName = dogWithTemperaments.Temperament.map((t) => t.name);
+        const temperamentsName = dogWithTemperaments.temperaments.map((t) => t.name);
 
         return {
             id: dogWithTemperaments.id,

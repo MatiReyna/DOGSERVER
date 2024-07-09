@@ -3,6 +3,7 @@ const { getAllDogs } = require('../controller/getAllDog');
 const { getTemperaments } = require('../controller/getTemperament');
 const { getById } = require('../controller/getById');
 const { getByName } = require('../controller/getByName');
+const { postDog } = require('../controller/postDog');
 
 const dogRouter = Router();
 
@@ -31,7 +32,22 @@ dogRouter.get('/:id', async (request, response) => {
         const dogFind = await getById(id);
         return response.status(200).json(dogFind);
     } catch (error) {
-        return response.status(500).send({ error: error.message })
+        return response.status(500).send({ error: 'Internal Server Error', details: error.message });
+    }
+});
+
+dogRouter.post('/', async (request, response) => {
+    try {
+        const { name, height, weight, life_span, image, temperaments } = request.body;
+
+        if (!name || !height || !weight || !life_span || !image) {
+            return response.status(400).json({ error: 'Missing required fields' });
+        } else {
+            const newDog = await postDog(name, height, weight, life_span, image, temperaments);
+            return response.status(201).json(newDog);
+        }
+    } catch (error) {
+        return response.status(500).send({ error: 'Internal Server Error', details: error.message });
     }
 });
 
