@@ -4,9 +4,7 @@ const { Op } = require('sequelize');  // Para realizar comparaciones en las cons
 const postDog = async (name, height, weight, life_span, image, temperaments) => {  // Función que crea un perro.
 
     const dogFind = await Dog.findOne({  // Busca en la DB si ya existe un perro con ese nombre.
-        where: {
-            name: name
-        }
+        where: { name }
     });
 
     if (dogFind) {
@@ -21,7 +19,7 @@ const postDog = async (name, height, weight, life_span, image, temperaments) => 
             from: 'DB'
         });
 
-        if (temperaments) {
+        if (temperaments && temperaments.length > 0) {
             const temperamentsFind = await Temperament.findAll({
                 where: {
                     name: {
@@ -34,7 +32,7 @@ const postDog = async (name, height, weight, life_span, image, temperaments) => 
         }
 
         const dogWithTemperaments = await Dog.findByPk(newDog.id, { include: Temperament });
-        const temperamentsName = dogWithTemperaments.temperaments.map((t) => t.name);
+        const temperamentsName = dogWithTemperaments.Temperaments.map((t) => t.name);
 
         return {
             id: dogWithTemperaments.id,
