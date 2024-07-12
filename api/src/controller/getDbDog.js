@@ -21,7 +21,7 @@ const getDbDogs = async () => {  // Función que devuelve una lista de los perro
             life_span: dog.life_span,
             image: dog.image,
             temperaments: dog.temperament ? dog.Temperament.map((t) => t.name) : [],
-            from: 'DATA BASE'  // Le creo un campo para saber de donde proviene.
+            from: 'DB'  // Le creo un campo para saber de donde proviene.
         }
     });
 };
