@@ -7,7 +7,8 @@ const getAllDogs = async () => {
     const [ apiDogs, dbDogs ] = await Promise.all([ getApiDogs(), getDbDogs() ]);
 
     // Unimos las dos fuentes de datos para que sea una sola lista.
-    const allDogs = dbDogs.concat(apiDogs);
+    // const allDogs = dbDogs.concat(apiDogs);
+    const allDogs = [...dbDogs, ...apiDogs];
 
     return allDogs;  // Se retornan todos los perros.
 };

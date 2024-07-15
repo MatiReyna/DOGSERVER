@@ -11,7 +11,7 @@ const getById = async (id) => {  // Función que devuelve el perro con el id que
     if (dog) {  // Si lo encontro.
         return dog  // Devuelve el objeto solo y no dentro del arreglo.
     } else {
-        return 'Dog not found'
+        return { error: 'Dog not found' }
     }
 };
 
