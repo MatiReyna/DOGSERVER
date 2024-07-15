@@ -19,8 +19,9 @@ const postDog = async (name, height, weight, life_span, image, temperaments) => 
             from: 'DB'
         });
 
+        let temperamentsFind = [];
         if (temperaments && temperaments.length > 0) {
-            const temperamentsFind = await Temperament.findAll({
+            temperamentsFind = await Temperament.findAll({
                 where: {
                     name: {
                         [Op.in]: temperaments
