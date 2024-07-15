@@ -7,7 +7,7 @@ temperamentRouter.get('/', async (request, response) => {
     try {
         const allTemperaments = await getTemperaments()  // Ejecutamos el controlador de temperamentos.
 
-        if (allTemperaments) {
+        if (allTemperaments && allTemperaments.length > 0) {
             return response.status(200).json(allTemperaments);
         } else {
             return response.status(404).json({ error: 'No Temperaments found' });
