@@ -25,7 +25,19 @@ const getByName = async (name) => {  // Función que devuelve el perro con el na
         }
     });
 
-    return [ ...filteredDogsApi, ...filteredDogsDb ];
+    // Formateamos los perros de la DB para que coincidan en estructura a los de la API.
+    const formattedDogsDb = filteredDogsDb.map(dog => ({
+        id: dog.id,
+        name: dog.name,
+        height: dog.height,
+        weight: dog.weight,
+        life_span: dog.life_span,
+        image: dog.image,
+        temperaments: dog.Temperaments.map(t => t.name),
+        from: 'DB'
+    }));
+
+    return [ ...filteredDogsApi, ...formattedDogsDb ];
 };
 
 module.exports = {
