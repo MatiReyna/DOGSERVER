@@ -18,7 +18,7 @@ server.use((request, response, next) => {
         'GET, POST, OPTIONS, PUT, DELETE'
     );
     next();
-});
+});  // Comentario para mantener los commit.
 
 server.use('/', router);  // Configuracion de rutas.
 
