@@ -4,6 +4,10 @@ const { Op } = require('sequelize');
 
 const getByName = async (name) => {  // Función que devuelve el perro con el name que se pasa por parámetro.
 
+    if (!name || typeof name !== 'string') {
+        throw new Error('Invalid name parameter')
+    };
+
     const allDogs = await getAllDogs();  // Obtenemos la lista completa de perros.
 
     // Filtramos los perros de la API que coincidan con el parámetro.

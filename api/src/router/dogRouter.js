@@ -21,6 +21,7 @@ dogRouter.get('/', async (request, response) => {
             return response.status(200).json(allDogs);
         }
     } catch (error) {
+        console.error('Error fetching dogs:', error);
         return response.status(500).json({ error: 'Internal Server Error', details: error.message });
     }
 });
@@ -32,6 +33,7 @@ dogRouter.get('/:id', async (request, response) => {
         const dogFind = await getById(id);
         return response.status(200).json(dogFind);
     } catch (error) {
+        console.error('Error fetching dog by ID:', error);
         return response.status(500).send({ error: 'Internal Server Error', details: error.message });
     }
 });
@@ -47,6 +49,7 @@ dogRouter.post('/', async (request, response) => {
             return response.status(201).json(newDog);
         }
     } catch (error) {
+        console.error('Error creating new dog:', error);
         return response.status(500).send({ error: 'Internal Server Error', details: error.message });
     }
 });

@@ -16,7 +16,7 @@ const getAllDogs = async () => {
                 const dbDog = await Dog.findByPk(dog.id, { include: Temperament })  // Si el perro es de la base de datos, obtenemos los temperamentos.
                 return {
                     ...dog,
-                    temperaments: dbDog.Temperaments.map((t) => t.name)
+                    temperaments: dbDog ? dbDog.Temperaments.map((t) => t.name) : []  // Verifica que dbDog y Temperaments existan
                 }
             } else {
                 return dog;
