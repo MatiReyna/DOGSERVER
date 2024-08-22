@@ -13,6 +13,7 @@ temperamentRouter.get('/', async (request, response) => {
             return response.status(404).json({ error: 'No Temperaments found' });
         }
     } catch (error) {
+        console.error('Error fetching temperaments:', error);
         return response.status(500).json({ error: 'Internal Server Error', details: error.message });
     }
 });

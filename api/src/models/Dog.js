@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true,  // El nombre no puede estar vacío.
+                notEmpty: true,  // La altura no puede estar vacío.
                 is: /^[0-9]+(-[0-9]+)? cm$/  // Validación para formato de altura, p.ej. '30-40 cm'.
             }
         },
@@ -27,7 +27,7 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true,  // El nombre no puede estar vacío.
+                notEmpty: true,  // El peso no puede estar vacío.
                 is: /^[0-9]+(-[0-9]+)? kg$/  // Validación para formato de peso, p.ej. '15-20 kg'.
             }
         },
@@ -35,7 +35,7 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true,  // El nombre no puede estar vacío.
+                notEmpty: true,  // El longevidad no puede estar vacío.
                 is: /^[0-9]+(-[0-9]+)? years$/  // Validación para formato de vida, p.ej. '10-12 years'.
             }
         },
