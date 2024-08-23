@@ -1,7 +1,7 @@
 const server  = require('./app');  // Importamos el servidor.
 const { conn } = require('./DB_connection');  // Importamos la conexión a la base de datos.
 
-const PORT = process.env.PORT || 3001;
+const PORT = 3001;
 
 conn.sync({ force: true }).then(() => {
     console.log('Connection established')  // Si todo sale bien, la conexión a la DB se hizo exitosa.

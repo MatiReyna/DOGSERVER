@@ -32,5 +32,6 @@ Temperament.belongsToMany(Dog, { through: 'dog_temperament' });
 
 module.exports = {
     conn: sequelize,
-    models: { Dog, Temperament }
+    Dog, 
+    Temperament
 }
